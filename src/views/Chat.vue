@@ -53,12 +53,8 @@ export default class Chat extends Vue {
   @Call('chat/sendMessage') sendMessage
 
   mounted () {
-    // window.Echo.channel("messages").listen(".message.created", (e) => {
-    //     this.messages.push(e.message);
-    // });
     this.$echo.channel('channel-chat')
       .listen('.chat-receveid', (event) => {
-        // const result = JSON.parse(event.message)
         this.setMessage(event.message)
       })
   }

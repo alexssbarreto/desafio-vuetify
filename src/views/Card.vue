@@ -3,7 +3,7 @@
     <v-row>
       <v-col>
         <v-card shaped class="mx-auto" max-width="400">
-          <v-card-text>z
+          <v-card-text>
             <v-subheader class="center-text">Fale com a turma</v-subheader>
             <v-list>
               <v-list-item-group color="primary">
