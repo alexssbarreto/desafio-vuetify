@@ -2,6 +2,16 @@
   <v-container>
     <v-row>
       <v-col>
+        <h1>{{ $t('welcome') }}</h1>
+        <h2>{{ $t('title') }}</h2>
+
+        <br />
+
+        Selecione um idioma:
+        <select @change="$i18n.locale=$event.target.value">
+          <option v-for="(locale, index) in locales" :value="locale.value" :key="index">{{ locale.caption }}</option>
+        </select>
+
         <v-card shaped class="mx-auto" max-width="400">
           <v-card-text>
             <v-subheader class="center-text">Fale com a turma</v-subheader>
@@ -35,6 +45,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { Get, Call } from 'vuex-pathify'
+import { LOCALES } from '../i18n/locales'
 
 @Component
 export default class Card extends Vue {
@@ -44,6 +55,10 @@ export default class Card extends Vue {
 
   created () {
     this.fetchUsers()
+  }
+
+  get locales () {
+    return LOCALES
   }
 
   public onItemClick (user: number): void {
